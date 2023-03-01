@@ -56,7 +56,13 @@ $ cd python-dvic
 # Install dependencies
 $ yarn
 
-# Run the project
+# Install vscode extension
+$ install the vscode extension "Pico-W-Go"
+
+# start the python script
+$ connecte the raspberry pi to your computer and start the script
+
+# Run the WebApp
 $ yarn dev
 
 # The server will initialize in the <http://localhost:4200>
