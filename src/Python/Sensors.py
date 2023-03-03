@@ -8,8 +8,8 @@ import ujson	#import des fonction lier aà la convertion en Json
 
 # DHT11 sensor
 sensor = DHT11(Pin(19, Pin.OUT, Pin.PULL_DOWN))
-sensor.measure()
-
+#sensor.measure()
+print("ok")
 # Sensor function
 def Temperature():
     if sensor.temperature() > 40:
@@ -88,16 +88,24 @@ while True:
     # send data to api 
     try:
         print("POST")
-        data = ujson.dumps({"temperature": sensor.temperature(), "humidity": sensor.humidity()})
+        data = ujson.dumps({
+            "temperature": {
+                "value": sensor.temperature(),
+                "ladActivate": Temperature()
+            },
+            "humidity": {
+                "value": sensor.humidity(),
+                "ladActivate": Humidity()
+            }
+        })
         print(data)
         headers = {'Content-Type': 'application/json'}
         r = urequests.post(url, data=data, headers=headers)
         print(r.text)
         r.close()
-        utime.sleep(5)
     except Exception as e:
         print(e)
         utime.sleep(5)
 
-    time.sleep(5)
+    time.sleep(10)
 

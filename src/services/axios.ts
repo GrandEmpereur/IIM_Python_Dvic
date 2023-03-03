@@ -1,6 +1,11 @@
 import axios, { AxiosInstance } from 'axios'
 import { Data } from '../types/axiosType'
+import dotenv from 'dotenv'
+import path from 'path'
 
+dotenv.config({
+    path: path.resolve(process.cwd(), process.env.NODE_ENV === "development" ? '.env.development' : '.env'),
+});
 
 /* Creating an instance of the axios object and assigning it to the variable 'instance'. */
 let instance = null as AxiosInstance | null
@@ -33,8 +38,12 @@ export async function CreateBin(data: Data) {
  * to the variable 'instance'.
  */
 export async function updateAxiosInstance() {
-    const key = "\$2b\$10\$KuOAMdG1jiZBJe92jjJe5.vrohu.y3Qh5MguyGbdE6CwGfbGYxgQ2"
-    const binID = "63ff4fe7ebd26539d0876d5a"
+    const key = process.env.JSONBIN_SECRET_KEY
+    const binID = process.env.JSONBIN_BIN_ID
+
+    if (!key || !binID) {
+        throw new Error('Missing JSONBIN_SECRET_KEY or JSONBIN_BIN_ID')
+    }
 
     instance = axios.create({
         baseURL: 'https://api.jsonbin.io/v3/b/' + binID,
