@@ -91,21 +91,21 @@ while True:
         data = ujson.dumps({
             "temperature": {
                 "value": sensor.temperature(),
-                "ladActivate": Temperature()
+                "ledActivate": Temperature()
             },
             "humidity": {
                 "value": sensor.humidity(),
-                "ladActivate": Humidity()
+                "ledActivate": Humidity()
             }
         })
         print(data)
         headers = {'Content-Type': 'application/json'}
         r = urequests.post(url, data=data, headers=headers)
-        print(r.text)
+        print(f"data send to database with data : {data}")
         r.close()
     except Exception as e:
         print(e)
         utime.sleep(5)
 
-    time.sleep(10)
+    time.sleep(3)
 
