@@ -2,8 +2,6 @@
   <img src="./.github/app.gif" alt="Python DVIC" />
 
   &#xa0;
-
-  <!-- <a href="https://pythondvic.netlify.app">Demo</a> -->
 </div>
 
 <h1 align="center">Python DVIC</h1>
@@ -55,6 +53,17 @@ $ cd python-dvic
 
 # Install dependencies
 $ yarn
+
+# duplicate the .env.example file and rename it to .env.development and add that required data
+  # JSONBIN
+  JSONBIN_SECRET_KEY= "$2b$10$KuOAMdG1jiZBJe92jjJe5.vrohu.y3Qh5MguyGbdE6CwGfbGYxgQ2"
+  JSONBIN_BIN_ID= "63ff4fe7ebd26539d0876d5a"
+
+  # TWILIO
+  TWILIO_ACCOUNT_SID= 'AC13baa3f5d73ddc8da2238b038825dad4'
+  TWILIO_AUTH_TOKEN= "60a667a07333a2978de05bef839c8dba"
+  TWILIO_NUMBER= "+12766638698"
+  TWILIO_TO_PHONE_NUMBER= "YOUR PHONE NUMBER"
 
 # Install vscode extension
 $ install the vscode extension "Pico-W-Go"

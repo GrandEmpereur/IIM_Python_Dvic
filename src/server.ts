@@ -64,6 +64,7 @@ async function createApp(): Promise<Koa> {
                 data : {
                     temperature: sensors.temperature,
                     humidity: sensors.humidity,
+                    date: sensors.date
                 }
             });
         } catch (err) {
