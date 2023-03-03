@@ -107,5 +107,5 @@ while True:
         print(e)
         utime.sleep(5)
 
-    time.sleep(3)
+    time.sleep(10)
 
