@@ -74,7 +74,7 @@ wlan = network.WLAN(network.STA_IF) # met la raspi en mode client wifi
 wlan.active(True) # active le mode client wifi
 
 ssid = 'iPhone de L’Empereur ⚜️'
-password = 'Empereurbkn1'
+password = PASSWORD
 wlan.connect(ssid, password) # connecte la raspi au réseau
 url = "http://172.20.10.9:4200/api/create/sensors"
 
